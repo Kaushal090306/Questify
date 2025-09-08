@@ -9,7 +9,7 @@ channels==4.0.0
 channels-redis==4.1.0
 celery==5.3.4
 redis==5.0.1
-PyMuPDF==1.23.8
+PyPDF2==3.0.1
 python-docx==1.1.0
 python-pptx==0.6.21
 openai>=1.30.0

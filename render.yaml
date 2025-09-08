@@ -4,9 +4,7 @@ services:
   - type: web
     name: questify-backend
     env: python
-    buildCommand: |
-      pip install -r requirements.txt
-      python manage.py collectstatic --noinput
+    buildCommand: ./build.sh
     startCommand: gunicorn backend.wsgi
     envVars:
       - key: DJANGO_SECRET_KEY
@@ -17,6 +15,8 @@ services:
           property: connectionString
       - key: ALLOWED_HOSTS
         value: .onrender.com
+      - key: GOOGLE_GEMINI_API_KEY
+        sync: false
     plan: free
 
   - type: static
@@ -26,6 +26,9 @@ services:
       npm install
       npm run build
     staticPublishPath: frontend/build
+    envVars:
+      - key: REACT_APP_SOCKETIO_URL
+        value: https://questify-backend.onrender.com
     plan: free
 
 databases:

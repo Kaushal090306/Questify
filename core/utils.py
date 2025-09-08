@@ -1,4 +1,4 @@
-import fitz  # PyMuPDF
+from PyPDF2 import PdfReader
 import docx
 import openai
 import json
@@ -18,10 +18,9 @@ def parse_document(file):
 
     if file_ext == "pdf":
         # Parse PDF
-        pdf_doc = fitz.open(stream=file.read(), filetype="pdf")
-        for page in pdf_doc:
-            raw_text += page.get_text()
-        pdf_doc.close()
+        reader = PdfReader(file)
+        for page in reader.pages:
+            raw_text += page.extract_text()
     elif file_ext == "docx":
         # Parse DOCX
         doc = docx.Document(file)

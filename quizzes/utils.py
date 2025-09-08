@@ -1,6 +1,6 @@
 import json
 import re
-import fitz  # PyMuPDF
+from PyPDF2 import PdfReader
 import docx
 from pptx import Presentation
 from django.conf import settings
@@ -20,9 +20,10 @@ def parse_document(file):
 
 def parse_pdf(file):
     try:
-        pdf = fitz.open(stream=file.read(), filetype="pdf")
-        text = "".join(page.get_text() for page in pdf)
-        pdf.close()
+        reader = PdfReader(file)
+        text = ""
+        for page in reader.pages:
+            text += page.extract_text()
         return text.strip()
     except Exception as e:
         raise ValueError(f"Error parsing PDF: {str(e)}")
