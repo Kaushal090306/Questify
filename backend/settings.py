@@ -3,17 +3,12 @@ from pathlib import Path
 from datetime import timedelta
 
 import dj_database_url
-
-import os
-from pathlib import Path
-from datetime import timedelta
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load environment variables from root directory
-from dotenv import load_dotenv
-# Load .env from parent directory (project root)
 env_path = BASE_DIR / '.env'
 load_dotenv(env_path)
 print(f"Loaded GOOGLE_GEMINI_API_KEY: {os.getenv('GOOGLE_GEMINI_API_KEY')}")

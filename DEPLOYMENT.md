@@ -1,5 +1,14 @@
 # Questify Deployment Guide for Render.com
 
+## IMPORTANT: Gunicorn Command Fix
+
+**Issue:** Render was trying to run `gunicorn app:app` instead of the correct Django command.
+
+**Solutions:**
+1. **Procfile created** with correct command: `web: gunicorn backend.wsgi:application --bind 0.0.0.0:$PORT`
+2. **render.yaml updated** with simplified startCommand
+3. **start.sh script** created as backup
+
 ## Files Modified for Deployment
 
 ### 1. Requirements Fixed
@@ -12,60 +21,53 @@
 - **Optional PPTX Support**: Made python-pptx optional to avoid build issues
 - **Optional OpenAI**: Made OpenAI import optional
 - **CORS Settings**: Updated for production with Render domains
+- **Fixed duplicate imports** in settings.py
 
 ### 3. Deployment Files
 - **render.yaml**: Blueprint for automatic deployment
-- **build.sh**: Build script (backup)
+- **Procfile**: Backup deployment command
+- **start.sh**: Alternative start script
+- **MANUAL_DEPLOY.md**: Manual deployment instructions
 - **.env.example**: Template for environment variables
 
-## Deployment Steps
+## Deployment Options
 
-### 1. Push to GitHub
-```bash
-git add .
-git commit -m "Prepare for Render deployment"
-git push origin main
-```
+### Option 1: Blueprint Deployment (Recommended)
+1. Push all files to GitHub
+2. Go to Render Dashboard → New → Blueprint
+3. Connect repository → Render auto-detects render.yaml
 
-### 2. Deploy on Render
-1. Go to [Render Dashboard](https://dashboard.render.com/)
-2. Click "New" → "Blueprint"
-3. Connect your GitHub repository
-4. Render will automatically detect the `render.yaml` file
+### Option 2: Manual Deployment (If Blueprint fails)
+1. Create services manually following MANUAL_DEPLOY.md
+2. Use the specific build and start commands provided
 
-### 3. Set Environment Variables
-In Render Dashboard, set these environment variables:
+## Environment Variables Required
 - `DJANGO_SECRET_KEY`: Your Django secret key
 - `GOOGLE_GEMINI_API_KEY`: Your Google Gemini API key
 - `DATABASE_URL`: (Automatically provided by Render Postgres)
+- `ALLOWED_HOSTS`: .onrender.com
+- `DEBUG`: False
 
-### 4. Frontend Environment
-Add to your React app environment:
-- `REACT_APP_SOCKETIO_URL`: https://questify-backend.onrender.com
+## Troubleshooting
 
-## Known Issues Fixed
-- ❌ PyMuPDF build errors → ✅ PyPDF2 (lightweight)
-- ❌ Pillow version conflicts → ✅ Latest stable Pillow
-- ❌ Heavy dependencies → ✅ Minimal requirements
-- ❌ Missing PPTX support → ✅ Optional with graceful fallback
+### If you see "No module named 'app'" error:
+✅ **Fixed:** Added Procfile with correct gunicorn command
 
-## Features Available
-- ✅ PDF document parsing
-- ✅ DOCX document parsing  
-- ⚠️ PPTX parsing (optional - can be enabled later)
-- ✅ Quiz generation with Google Gemini
-- ✅ Real-time multiplayer (Socket.IO)
-- ✅ User authentication (JWT)
-- ✅ Static file serving (WhiteNoise)
+### If build fails with package errors:
+✅ **Fixed:** Use requirements-deploy.txt with minimal dependencies
+
+### If static files don't load:
+✅ **Fixed:** WhiteNoise configured in settings.py
 
 ## Post-Deployment
-- Your backend will be at: `https://questify-backend.onrender.com`
-- Your frontend will be at: `https://questify-frontend.onrender.com`
-- Database will be automatically configured
+- Backend URL: `https://questify-backend.onrender.com`
+- Frontend URL: `https://questify-frontend.onrender.com`
+- Update REACT_APP_SOCKETIO_URL in frontend env vars
 
-## Adding Optional Features Later
-To enable PPTX support later, simply:
-1. Add `python-pptx==0.6.21` to requirements.txt
-2. Redeploy the service
+## Known Limitations on Free Tier
+- Services sleep after 15 minutes of inactivity
+- 750 hours/month limit
+- No persistent disk storage
+- Limited to basic features
 
-This setup prioritizes reliability over features for the initial deployment.
+Your deployment should now work correctly! 🚀
