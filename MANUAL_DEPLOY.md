@@ -5,12 +5,12 @@
 **Environment:** Python 3
 **Build Command:** 
 ```bash
-pip install --upgrade pip setuptools wheel && pip install -r requirements-stable.txt && python manage.py collectstatic --noinput && python manage.py migrate --noinput
+pip install --upgrade pip setuptools wheel && pip install -r requirements-stable.txt && python manage.py collectstatic --noinput
 ```
 
 **Start Command:**
 ```bash
-gunicorn backend.wsgi:application
+bash prestart.sh && gunicorn backend.wsgi:application
 ```
 
 **Environment Variables:**
