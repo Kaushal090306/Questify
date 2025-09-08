@@ -1,0 +1,198 @@
+/* Brutalist Navbar Animation Effects */
+
+/* Effect 1: Brutalist Corner Border Animation */
+.nav-link-corners {
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link-corners::before,
+.nav-link-corners::after {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 0 solid transparent;
+  width: 0%;
+  height: 0%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link-corners::after {
+  top: 0;
+  left: 0;
+  border-top: 3px solid transparent;
+  border-left: 3px solid transparent;
+}
+
+.nav-link-corners::before {
+  right: 0;
+  bottom: 0;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+.nav-link-corners:hover::before,
+.nav-link-corners:hover::after {
+  width: 12px;
+  height: 12px;
+  border-color: #ffffff;
+}
+
+/* Effect 2: Brutalist Letter Spacing Animation */
+.nav-link-spacing {
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link-spacing:hover {
+  letter-spacing: 3px;
+  transform: translateY(-2px);
+}
+
+/* Brutalist Main Link Effects */
+.nav-main-link {
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-main-link::before,
+.nav-main-link::after {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 0 solid transparent;
+  width: 0%;
+  height: 0%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-main-link::after {
+  top: 0;
+  left: 0;
+  border-top: 3px solid transparent;
+  border-left: 3px solid transparent;
+}
+
+.nav-main-link::before {
+  right: 0;
+  bottom: 0;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+.nav-main-link:hover::before,
+.nav-main-link:hover::after {
+  width: 10px;
+  height: 10px;
+  border-color: #ffffff;
+}
+
+.nav-main-link:hover {
+  letter-spacing: 2px;
+  transform: translateY(-2px);
+}
+
+/* Brutalist Logo Effects */
+.nav-logo {
+  position: relative;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-logo:hover {
+  letter-spacing: 3px;
+  transform: scale(1.05);
+}
+
+/* Brutalist Mobile Menu Effects */
+.nav-mobile-link {
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-mobile-link:hover {
+  letter-spacing: 2px;
+  transform: translateX(-4px);
+}
+
+/* Brutalist Button Hover Effects */
+.brutalist-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brutalist-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.brutalist-btn:hover::before {
+  left: 100%;
+}
+
+/* Brutalist Navbar Container */
+.brutalist-navbar {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Brutalist Dropdown Animation */
+.brutalist-dropdown {
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brutalist-dropdown.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Brutalist Focus States */
+.brutalist-focus:focus {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Brutalist Shine Effect */
+.brutalist-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.brutalist-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+  transform: rotate(45deg);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.brutalist-shine:hover::after {
+  animation: shine 0.6s ease-in-out;
+  opacity: 1;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}

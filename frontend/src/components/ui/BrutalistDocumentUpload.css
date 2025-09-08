@@ -1,0 +1,395 @@
+/* BrutalistDocumentUpload.css */
+
+.brutalist-document-upload {
+  width: 100%;
+  font-family: var(--font-family-display, "Space Grotesk"), sans-serif;
+  border: var(--border-width, 3px) solid var(--black, #000000);
+  border-radius: var(--border-radius-md, 0px);
+  background-color: var(--white, #ffffff);
+  box-shadow: var(--box-shadow, 6px 6px 0 var(--black));
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.brutalist-document-upload:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--box-shadow-hover, 8px 8px 0 var(--black));
+}
+
+/* Upload Header */
+.upload-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.upload-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--black, #000000);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-family-display, "Space Grotesk");
+}
+
+.upload-subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--night-rider, #2e2e2e);
+  font-family: var(--font-family-secondary, "Inter");
+}
+
+/* Upload Drop Zone */
+.upload-dropzone {
+  border: var(--border-width-thick, 4px) dashed var(--black, #000000);
+  border-radius: var(--border-radius-md, 0px);
+  background-color: var(--anti-flash-white, #f3f3f3);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-dropzone:hover {
+  border-color: var(--night-rider, #2e2e2e);
+  background-color: var(--white, #ffffff);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--box-shadow-sm, 4px 4px 0 var(--black));
+}
+
+.upload-dropzone.drag-active {
+  border-style: solid;
+  background-color: var(--anti-flash-white, #f3f3f3);
+  border-color: var(--black, #000000);
+  box-shadow: var(--box-shadow-lg, 10px 10px 0 var(--black));
+}
+
+.upload-dropzone.has-files {
+  border-style: solid;
+  background-color: var(--chinese-white, #e1e1e1);
+  min-height: 120px;
+  padding: 2rem;
+}
+
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: none;
+}
+
+.upload-icon {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width, 3px) solid var(--black, #000000);
+  border-radius: var(--border-radius-sm, 5px);
+  background-color: var(--white, #ffffff);
+  box-shadow: var(--box-shadow, 6px 6px 0 var(--black));
+}
+
+.upload-icon svg {
+  color: var(--night-rider, #2e2e2e);
+}
+
+.upload-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.primary-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--black, #000000);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.secondary-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--night-rider, #2e2e2e);
+  font-family: var(--font-family-secondary, "Inter");
+}
+
+.tertiary-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--night-rider, #2e2e2e);
+  font-family: var(--font-family-secondary, "Inter");
+}
+
+/* Files Summary */
+.files-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.summary-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width, 3px) solid var(--black, #000000);
+  border-radius: var(--border-radius-sm, 5px);
+  background-color: var(--white, #ffffff);
+  box-shadow: 4px 4px 0 var(--black, #000000);
+}
+
+.summary-icon svg {
+  color: var(--night-rider, #2e2e2e);
+}
+
+.summary-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black, #000000);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.add-more-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--night-rider, #2e2e2e);
+  font-family: var(--font-family-secondary, "Inter");
+}
+
+/* Hidden Input */
+.hidden-input {
+  display: none;
+}
+
+/* Upload Error */
+.upload-error {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #fee2e2;
+  border: var(--border-width, 3px) solid #dc2626;
+  border-radius: var(--border-radius-sm, 5px);
+  box-shadow: 4px 4px 0 #dc2626;
+  color: #dc2626;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: var(--font-family-secondary, "Inter");
+}
+
+/* Uploaded Files */
+.uploaded-files {
+  margin-top: 2rem;
+}
+
+.files-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: var(--border-width, 3px) solid var(--black, #000000);
+}
+
+.files-count {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--black, #000000);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Files Grid */
+.files-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.file-card {
+  border: var(--border-width, 3px) solid var(--black, #000000);
+  border-radius: var(--border-radius-md, 8px);
+  background-color: var(--white, #ffffff);
+  box-shadow: var(--box-shadow, 6px 6px 0 var(--black));
+  padding: 1rem;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.file-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--box-shadow-hover, 8px 8px 0 var(--black));
+}
+
+.file-header {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.file-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: var(--border-width, 3px) solid var(--black, #000000);
+  border-radius: var(--border-radius-sm, 5px);
+  background-color: var(--chinese-white, #e1e1e1);
+  box-shadow: 3px 3px 0 var(--black, #000000);
+}
+
+.remove-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: var(--border-width, 3px) solid var(--black, #000000);
+  border-radius: var(--border-radius-sm, 5px);
+  background-color: #fee2e2;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 0 var(--black, #000000);
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.remove-btn:hover {
+  background-color: #fecaca;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--black, #000000);
+}
+
+.remove-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--black, #000000);
+}
+
+.file-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--black, #000000);
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-family: var(--font-family-primary, "JetBrains Mono");
+}
+
+.file-size {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--night-rider, #2e2e2e);
+  font-family: var(--font-family-secondary, "Inter");
+}
+
+.file-actions {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.view-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: var(--border-width, 3px) solid var(--black, #000000);
+  border-radius: var(--border-radius-sm, 5px);
+  background-color: var(--chinese-white, #e1e1e1);
+  color: var(--black, #000000);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 3px 3px 0 var(--black, #000000);
+  font-family: var(--font-family-display, "Space Grotesk");
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.view-btn:hover {
+  background-color: var(--white, #ffffff);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--black, #000000);
+}
+
+.view-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--black, #000000);
+}
+
+.view-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .upload-dropzone {
+    padding: 2rem 1rem;
+    min-height: 150px;
+  }
+
+  .upload-title {
+    font-size: 1.25rem;
+  }
+
+  .files-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .file-card {
+    padding: 0.75rem;
+  }
+
+  .upload-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .primary-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-dropzone {
+    padding: 1.5rem 0.75rem;
+    min-height: 120px;
+  }
+
+  .file-header {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .file-name {
+    font-size: 0.8rem;
+  }
+
+  .view-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+}

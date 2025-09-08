@@ -1,0 +1,18 @@
+/* Custom Navbar Hover Effects */
+.nav-link-custom {
+  text-decoration: none;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.nav-link-custom:hover {
+  letter-spacing: 4px;
+}
+
+/* Remove previous pseudo-element effects */
+.nav-link-custom::before,
+.nav-link-custom::after {
+  display: none;
+}

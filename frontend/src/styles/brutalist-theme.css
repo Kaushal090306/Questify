@@ -1,0 +1,399 @@
+/* Brutalist Theme - Monochromatic Color Palette */
+
+:root {
+  /* Monochromatic Color Palette */
+  --black: #000000;
+  --eerie-black: #1b1b1b;
+  --chinese-black: #141414;
+  --night-rider: #2e2e2e;
+  --chinese-white: #e1e1e1;
+  --anti-flash-white: #f3f3f3;
+  --white: #ffffff;
+  
+  /* Border Radius Standards */
+  --border-radius-sm: 5px;
+  --border-radius-md: 8px;
+  
+  /* Brutalist Design Variables */
+  --border-width: 3px;
+  --border-width-thick: 4px;
+  --box-shadow: 6px 6px 0 var(--black);
+  --box-shadow-lg: 10px 10px 0 var(--black);
+  --box-shadow-hover: 8px 8px 0 var(--black);
+  
+  /* Typography */
+  --font-family-primary: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
+  --font-family-secondary: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-display: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+/* Import Professional Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* Custom Utility Classes for Brutalist Design */
+.border-3 {
+  border-width: 3px;
+}
+
+.border-t-3 {
+  border-top-width: 3px;
+}
+
+.border-b-3 {
+  border-bottom-width: 3px;
+}
+
+.border-l-3 {
+  border-left-width: 3px;
+}
+
+.border-r-3 {
+  border-right-width: 3px;
+}
+
+/* Base Reset and Typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-secondary);
+  background-color: var(--anti-flash-white);
+  color: var(--eerie-black);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Brutalist Button Base */
+.brutalist-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-family: var(--font-family-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border: var(--border-width) solid var(--black);
+  background-color: var(--white);
+  color: var(--black);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.brutalist-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.brutalist-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--black);
+}
+
+.brutalist-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: all 0.6s;
+}
+
+.brutalist-btn:hover::before {
+  left: 100%;
+}
+
+/* Button Variants */
+.brutalist-btn--primary {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.brutalist-btn--primary:hover {
+  background-color: var(--eerie-black);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.brutalist-btn--secondary {
+  background-color: var(--chinese-white);
+  color: var(--black);
+  border-color: var(--night-rider);
+}
+
+.brutalist-btn--danger {
+  background-color: #ff0000;
+  color: var(--white);
+  border-color: #cc0000;
+}
+
+.brutalist-btn--danger:hover {
+  background-color: #cc0000;
+  box-shadow: 8px 8px 0 #800000;
+}
+
+/* Brutalist Card Base */
+.brutalist-card {
+  border: var(--border-width-thick) solid var(--black);
+  background-color: var(--white);
+  box-shadow: var(--box-shadow-lg);
+  padding: 1.5rem;
+  font-family: var(--font-family-secondary);
+}
+
+.brutalist-card--dark {
+  background-color: var(--eerie-black);
+  color: var(--white);
+  border-color: var(--white);
+  box-shadow: var(--box-shadow-lg);
+}
+
+/* Brutalist Input Fields */
+.brutalist-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-family-primary);
+  font-size: 0.95rem;
+  border: var(--border-width) solid var(--black);
+  background-color: var(--white);
+  color: var(--black);
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0 var(--chinese-black);
+}
+
+.brutalist-input:focus {
+  outline: none;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--chinese-black);
+  background-color: var(--anti-flash-white);
+}
+
+.brutalist-input::placeholder {
+  color: var(--night-rider);
+  font-style: italic;
+}
+
+/* Brutalist Navbar */
+.brutalist-navbar {
+  background-color: var(--black);
+  border-bottom: var(--border-width-thick) solid var(--black);
+  box-shadow: 0 6px 0 var(--night-rider);
+}
+
+.brutalist-navbar-brand {
+  font-family: var(--font-family-display);
+  font-weight: 900;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--white) !important;
+}
+
+.brutalist-nav-link {
+  font-family: var(--font-family-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--chinese-white) !important;
+  padding: 12px 16px !important;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.brutalist-nav-link:hover {
+  color: var(--white) !important;
+  background-color: var(--night-rider);
+  border-color: var(--white);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--white);
+}
+
+/* Brutalist Form Elements */
+.brutalist-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.brutalist-label {
+  display: block;
+  font-family: var(--font-family-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+/* Brutalist Checkbox Override - New Style */
+.brutalist-checkbox {
+  position: relative;
+  cursor: pointer;
+  font-size: 12px;
+  width: 8px;
+  height: 8px;
+  user-select: none;
+  border: 2px solid black;
+  display: block;
+}
+
+.brutalist-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.brutalist-checkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.brutalist-checkbox .checkmark:after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  background-color: black;
+  width: 50%;
+  height: 50%;
+  transform: scale(0);
+  transition: .1s ease;
+}
+
+.brutalist-checkbox input:checked ~ .checkmark:after {
+  transform: scale(1);
+}
+
+/* Brutalist Alert/Warning */
+.brutalist-alert {
+  border: var(--border-width-thick) solid var(--black);
+  background-color: var(--white);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow-lg);
+  margin: 1rem 0;
+}
+
+.brutalist-alert--warning {
+  background-color: #ffeb3b;
+  border-color: #f57c00;
+  color: var(--black);
+}
+
+.brutalist-alert--error {
+  background-color: #ff5252;
+  border-color: #c62828;
+  color: var(--white);
+}
+
+.brutalist-alert--success {
+  background-color: #4caf50;
+  border-color: #2e7d32;
+  color: var(--white);
+}
+
+/* Utility Classes */
+.text-brutalist {
+  font-family: var(--font-family-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mono-text {
+  font-family: var(--font-family-primary);
+}
+
+.shadow-brutalist {
+  box-shadow: var(--box-shadow);
+}
+
+.shadow-brutalist-lg {
+  box-shadow: var(--box-shadow-lg);
+}
+
+.border-brutalist {
+  border: var(--border-width) solid var(--black);
+}
+
+.border-brutalist-thick {
+  border: var(--border-width-thick) solid var(--black);
+}
+
+/* Background Classes */
+.bg-brutalist-dark {
+  background-color: var(--eerie-black);
+  color: var(--white);
+}
+
+.bg-brutalist-light {
+  background-color: var(--anti-flash-white);
+  color: var(--black);
+}
+
+.bg-brutalist-white {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  .brutalist-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .brutalist-card {
+    padding: 1rem;
+  }
+}

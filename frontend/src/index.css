@@ -1,0 +1,195 @@
+/* Import Brutalist Theme */
+@import './styles/brutalist-theme.css';
+
+/* If not using Tailwind, remove these lines and include the necessary CSS resets and utility classes manually. */
+/* Example: */
+@import 'tailwindcss/base.css';
+@import 'tailwindcss/components.css'; 
+@import 'tailwindcss/utilities.css'; 
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Basic components */
+.btn {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+.btn-primary {
+  background-color: #2563eb; /* bg-primary-600 */
+  color: #fff; /* text-white */
+}
+.btn-secondary {
+  background-color: #64748b; /* bg-secondary-600 */
+  color: #fff; /* text-white */
+}
+.btn-accent {
+  background-color: #d97706; /* bg-accent-600 */
+  color: #fff; /* text-white */
+}
+.btn-outline {
+  border-width: 2px;
+  border-color: #2563eb; /* border-primary-600 */
+  color: #2563eb; /* text-primary-600 */
+.btn-ghost {
+  color: #475569; /* text-slate-600 */
+  background: transparent;
+}
+.btn-danger {
+  background-color: #dc2626; /* bg-red-600 */
+  color: #fff; /* text-white */
+}
+.card {
+  background-color: #fff; /* bg-white */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); /* shadow-lg */
+.input {
+  width: 100%; /* w-full */
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem; /* py-3 */
+  border: 1px solid #cbd5e1; /* border-slate-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  outline: none;
+  box-shadow: 0 0 0 2px #3b82f6; /* focus:ring-2 focus:ring-primary-500 */
+  border-color: transparent; /* focus:border-transparent */
+}
+.btn-danger:focus {
+  box-shadow: 0 0 0 2px #ef4444; /* focus:ring-red-500 */
+}
+}
+  background-color: #2563eb; /* hover:bg-primary-600 */
+  color: #fff; /* hover:text-white */
+}
+.btn-accent:focus {
+  box-shadow: 0 0 0 2px #f59e42; /* focus:ring-accent-500 */
+}
+.btn-secondary:focus {
+  box-shadow: 0 0 0 2px #94a3b8; /* focus:ring-secondary-500 */
+}
+.btn-primary:focus {
+  box-shadow: 0 0 0 2px #3b82f6; /* focus:ring-primary-500 */
+}
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-duration: 200ms;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:ring-2 focus:ring-offset-2 approximation */
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: #fff;
+  transition-property: background-color, box-shadow;
+  transition-duration: 200ms;
+}
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+.btn-primary:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.btn-secondary {
+  background-color: #64748b;
+  color: #fff;
+  transition-property: background-color, box-shadow;
+  transition-duration: 200ms;
+}
+.btn-secondary:hover {
+  background-color: #475569;
+}
+.btn-secondary:focus {
+  box-shadow: 0 0 0 2px #94a3b8;
+}
+
+.btn-accent {
+  background-color: #d97706;
+  color: #fff;
+  transition-property: background-color, box-shadow;
+  transition-duration: 200ms;
+}
+.btn-accent:hover {
+  background-color: #b45309;
+}
+.btn-accent:focus {
+  box-shadow: 0 0 0 2px #f59e42;
+}
+
+.btn-outline {
+  border-width: 2px;
+  border-color: #2563eb;
+  color: #2563eb;
+  background: transparent;
+  transition-property: background-color, color;
+  transition-duration: 200ms;
+}
+.btn-outline:hover {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.btn-ghost {
+  color: #475569;
+  background: transparent;
+  transition-property: background-color, color;
+  transition-duration: 200ms;
+}
+.btn-ghost:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  color: #fff;
+  transition-property: background-color, box-shadow;
+  transition-duration: 200ms;
+}
+.btn-danger:hover {
+  background-color: #b91c1c;
+}
+.btn-danger:focus {
+  box-shadow: 0 0 0 2px #ef4444;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+  border: 1px solid #cbd5e1;
+  padding: 1.5rem;
+}
+
+.input {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  outline: none;
+  transition-property: box-shadow, border-color;
+  transition-duration: 200ms;
+}
+.input:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+  border-color: transparent;
+}
+
+/* Brutalist loading animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
