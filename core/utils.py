@@ -1,13 +1,26 @@
 from PyPDF2 import PdfReader
 import docx
-import openai
 import json
 import os
-from pptx import Presentation
 import re
 from django.conf import settings
 
-openai.api_key = os.getenv("OPENAI_API_KEY", "")
+# Optional imports
+try:
+    import openai
+    OPENAI_AVAILABLE = True
+except ImportError:
+    OPENAI_AVAILABLE = False
+
+try:
+    from pptx import Presentation
+    PPTX_AVAILABLE = True
+except ImportError:
+    PPTX_AVAILABLE = False
+
+# Configure OpenAI if available
+if OPENAI_AVAILABLE:
+    openai.api_key = os.getenv("OPENAI_API_KEY", "")
 
 def parse_document(file):
     """
@@ -28,6 +41,8 @@ def parse_document(file):
             raw_text += para.text + "\n"
     elif file_ext == "pptx":
         # Parse PPTX
+        if not PPTX_AVAILABLE:
+            raise ValueError("PPTX support not available. Please install python-pptx or upload PDF/DOCX instead.")
         prs = Presentation(file)
         for slide in prs.slides:
             for shape in slide.shapes:

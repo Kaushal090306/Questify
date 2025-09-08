@@ -2,10 +2,16 @@ import json
 import re
 from PyPDF2 import PdfReader
 import docx
-from pptx import Presentation
 from django.conf import settings
 import requests
 import google.generativeai as genai
+
+# Optional imports for PPTX support
+try:
+    from pptx import Presentation
+    PPTX_AVAILABLE = True
+except ImportError:
+    PPTX_AVAILABLE = False
 
 def parse_document(file):
     ext = file.name.lower().split('.')[-1]
@@ -14,6 +20,8 @@ def parse_document(file):
     elif ext == 'docx':
         return parse_docx(file)
     elif ext == 'pptx':
+        if not PPTX_AVAILABLE:
+            raise ValueError("PPTX support not available. Please install python-pptx.")
         return parse_pptx(file)
     else:
         raise ValueError("Unsupported file type.")
@@ -36,6 +44,8 @@ def parse_docx(file):
         raise ValueError(f"Error parsing DOCX: {str(e)}")
 
 def parse_pptx(file):
+    if not PPTX_AVAILABLE:
+        raise ValueError("PPTX support not available. Please install python-pptx.")
     try:
         ppt = Presentation(file)
         return "\n".join(

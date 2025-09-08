@@ -16,7 +16,7 @@ whitenoise==6.6.0
 gunicorn==21.2.0
 
 # Image handling (essential for Django ImageField)
-Pillow
+Pillow>=9.0.0
 
 # Document parsing (lightweight alternatives)
 PyPDF2==3.0.1
@@ -28,16 +28,6 @@ google-generativeai==0.8.3
 # QR Code generation
 qrcode[pil]==7.4.2
 
-# Socket.IO
+# Socket.IO (if needed)
 python-socketio==5.8.0
 python-engineio==4.7.1
-
-# Optional: Uncomment if PPTX support is needed
-# python-pptx==0.6.21
-# reportlab==4.0.7
-
-# Optional: Uncomment if Celery/Redis is needed
-# celery==5.3.4
-# redis==5.0.1
-# channels==4.0.0
-# channels-redis==4.1.0 

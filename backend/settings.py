@@ -178,18 +178,20 @@ SIMPLE_JWT = {
     'USER_ID_CLAIM': 'user_id',
 }
 
-# CORS settings - Using custom middleware
-CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins for debugging
+# CORS settings - Production ready
+CORS_ALLOW_ALL_ORIGINS = DEBUG  # Only allow all origins in debug mode
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://questify-frontend.onrender.com",
 ]
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^http://localhost:\d+$",
     r"^http://127\.0\.0\.1:\d+$",
+    r"^https://.*\.onrender\.com$",
 ]
 
 # CORS Headers
