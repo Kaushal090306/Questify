@@ -3,8 +3,9 @@ set -o errexit  # Exit on error
 
 echo "Starting build process..."
 
-# Upgrade pip first
-pip install --upgrade pip
+# Upgrade pip and essential tools first
+echo "Upgrading pip and core packages..."
+pip install --upgrade pip setuptools wheel
 
 # Install dependencies with fallback
 if [ -f "requirements-deploy.txt" ]; then

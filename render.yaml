@@ -6,10 +6,17 @@ services:
     env: python
     region: oregon
     buildCommand: |
-      pip install --upgrade pip
-      pip install -r requirements-deploy.txt
+      echo "Python version: $(python --version)"
+      echo "Current directory: $(pwd)"
+      echo "Available files: $(ls -la)"
+      pip install --upgrade pip setuptools wheel
+      echo "Installing requirements..."
+      pip install -r requirements-stable.txt
+      echo "Collecting static files..."
       python manage.py collectstatic --noinput
+      echo "Running migrations..."
       python manage.py migrate --noinput
+      echo "Build complete!"
     startCommand: gunicorn backend.wsgi:application
     envVars:
       - key: DJANGO_SECRET_KEY

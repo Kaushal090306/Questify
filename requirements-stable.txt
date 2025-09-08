@@ -1,18 +1,33 @@
-# Minimal requirements for deployment (avoiding problematic packages)
-setuptools>=65.0.0
+# Ultra-minimal requirements for deployment - version pinned for stability
+setuptools==68.2.0
+wheel==0.41.2
+pip==23.2.1
+
+# Core Django
 Django==4.2.7
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.3.0
 django-cors-headers==4.3.1
+
+# Database
 psycopg2-binary==2.9.9
 dj-database-url==2.1.0
+
+# Environment
 python-dotenv==1.0.1
+
+# Static files and deployment
 whitenoise==6.6.0
 gunicorn==21.2.0
-Pillow
+
+# Essential packages only
+Pillow==10.0.1
 PyPDF2==3.0.1
 python-docx==1.1.0
 google-generativeai==0.8.3
-qrcode[pil]==7.4.2
+qrcode==7.4.2
+pypng==0.20220715.0
+
+# Socket.IO (minimal)
 python-socketio==5.8.0
 python-engineio==4.7.1
