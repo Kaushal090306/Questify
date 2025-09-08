@@ -42,7 +42,11 @@ services:
     staticPublishPath: frontend/build
     envVars:
       - key: REACT_APP_SOCKETIO_URL
-        value: https://questify-backend.onrender.com
+        value: https://questify-backend-cl4v.onrender.com
+      - key: REACT_APP_API_URL
+        value: https://questify-backend-cl4v.onrender.com/api
+      - key: REACT_APP_WS_URL
+        value: wss://questify-backend-cl4v.onrender.com
     plan: free
 
 databases:

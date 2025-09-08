@@ -11,7 +11,7 @@ class WebSocketManager {
       this.disconnect();
     }
 
-    const wsUrl = process.env.REACT_APP_WS_URL || 'ws://localhost:8000';
+    const wsUrl = process.env.REACT_APP_WS_URL || 'wss://questify-backend-cl4v.onrender.com';
     
     this.socket = io(wsUrl, {
       auth: {

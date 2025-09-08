@@ -29,10 +29,8 @@ class SocketIOService {
       return this.connectPromise;
     }
 
-  // Use environment variable for production, fallback to localhost for dev
-  const url = serverUrl || process.env.REACT_APP_SOCKETIO_URL || 'https://questify-backend.onrender.com';
-    
-    // Store the connection promise before initiating connection
+    // Use environment variable for production, fallback to localhost for dev
+    const url = serverUrl || process.env.REACT_APP_SOCKETIO_URL || 'https://questify-backend-cl4v.onrender.com';    // Store the connection promise before initiating connection
     this.connectPromise = new Promise((resolve, reject) => {
       this.socket = io(url, {
         transports: ['websocket', 'polling'],
